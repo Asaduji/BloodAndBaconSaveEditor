@@ -34,6 +34,7 @@
             this.SaveFileButton = new System.Windows.Forms.Button();
             this.UnlockedWeaponsButton = new System.Windows.Forms.Button();
             this.ConsumablesButton = new System.Windows.Forms.Button();
+            this.DaysButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // SelectFileButton
@@ -81,11 +82,23 @@
             this.ConsumablesButton.UseVisualStyleBackColor = true;
             this.ConsumablesButton.Click += new System.EventHandler(this.ConsumablesButton_Click);
             // 
+            // DaysButton
+            // 
+            this.DaysButton.Enabled = false;
+            this.DaysButton.Location = new System.Drawing.Point(12, 45);
+            this.DaysButton.Name = "DaysButton";
+            this.DaysButton.Size = new System.Drawing.Size(117, 27);
+            this.DaysButton.TabIndex = 4;
+            this.DaysButton.Text = "Days";
+            this.DaysButton.UseVisualStyleBackColor = true;
+            this.DaysButton.Click += new System.EventHandler(this.DaysButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(295, 182);
+            this.Controls.Add(this.DaysButton);
             this.Controls.Add(this.ConsumablesButton);
             this.Controls.Add(this.UnlockedWeaponsButton);
             this.Controls.Add(this.SaveFileButton);
@@ -105,5 +118,7 @@
         private System.Windows.Forms.Button UnlockedWeaponsButton;
         private System.Windows.Forms.Button ConsumablesButton;
         #endregion
+
+        private System.Windows.Forms.Button DaysButton;
     }
 }

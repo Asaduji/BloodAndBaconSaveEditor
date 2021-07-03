@@ -25,6 +25,7 @@ namespace BloodAndBaconSaveEditor.Forms
                 //Enable controls
                 UnlockedWeaponsButton.Enabled = true;
                 ConsumablesButton.Enabled = true;
+                DaysButton.Enabled = true;
                 SaveFileButton.Enabled = true;
             }
         }
@@ -46,7 +47,7 @@ namespace BloodAndBaconSaveEditor.Forms
             {
                 var path = saveDialog.FileName;
                 File.WriteAllBytes(path, Program.CurrentSave.GetBytes());
-                MessageBox.Show("Saved data");
+                MessageBox.Show("Saved data", "Success");
             }
         }
 
@@ -55,6 +56,13 @@ namespace BloodAndBaconSaveEditor.Forms
             if (Program.CurrentSave == null) return;
             var consumables = new ConsumablesForm();
             consumables.ShowDialog();
+        }
+
+        private void DaysButton_Click(object sender, EventArgs e)
+        {
+            if (Program.CurrentSave == null) return;
+            var days = new DaysForm();
+            days.ShowDialog();
         }
     }
 }

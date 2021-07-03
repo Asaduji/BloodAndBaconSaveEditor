@@ -12,7 +12,7 @@ namespace BloodAndBaconSaveEditor.Saves
             Consumables = new Consumables(_grenadeCount, _milkCount, _bulkifyCount, _pillCount, _rocketCount);
         }
         
-        public byte[] UnlockedDays = new byte[201]; //Total 201
+        public byte[] UnlockedDays = new byte[201]; //Total 201, the first byte is always 1 and is useless
         private int _unlockedWeaponsBitField;
         private int _grinderUnlocksBitField;
         public UnlockedWeapons UnlockedWeapons;
