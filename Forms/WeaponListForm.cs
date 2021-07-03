@@ -57,5 +57,19 @@ namespace BloodAndBaconSaveEditor.Forms
             unlockedWeapons.SilencedPistol = SilencedPistolCheckBox.Checked;
             unlockedWeapons.PaintGun = PaintGunCheckBox.Checked;
         }
+
+        private void UnlockAllButton_Click(object sender, EventArgs e)
+        {
+            AK47CheckBox.Checked = true;
+            ShotgunCheckBox.Checked = true;
+            M16CheckBox.Checked = true;
+            UziCheckBox.Checked = true;
+            RocketLauncherCheckBox.Checked = true;
+            P90CheckBox.Checked = true;
+            DeagleCheckBox.Checked = true;
+            ColtCheckBox.Checked = true;
+            SilencedPistolCheckBox.Checked = true;
+            PaintGunCheckBox.Checked = true;
+        }
     }
 }

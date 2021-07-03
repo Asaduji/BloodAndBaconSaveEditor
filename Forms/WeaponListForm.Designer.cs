@@ -44,6 +44,7 @@ namespace BloodAndBaconSaveEditor.Forms
             this.SilencedPistolCheckBox = new System.Windows.Forms.CheckBox();
             this.PaintGunCheckBox = new System.Windows.Forms.CheckBox();
             this.DoneButton = new System.Windows.Forms.Button();
+            this.UnlockAllButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -167,7 +168,7 @@ namespace BloodAndBaconSaveEditor.Forms
             // 
             // DoneButton
             // 
-            this.DoneButton.Location = new System.Drawing.Point(242, 240);
+            this.DoneButton.Location = new System.Drawing.Point(252, 267);
             this.DoneButton.Name = "DoneButton";
             this.DoneButton.Size = new System.Drawing.Size(75, 23);
             this.DoneButton.TabIndex = 12;
@@ -175,11 +176,22 @@ namespace BloodAndBaconSaveEditor.Forms
             this.DoneButton.UseVisualStyleBackColor = true;
             this.DoneButton.Click += new System.EventHandler(this.DoneButton_Click);
             // 
+            // UnlockAllButton
+            // 
+            this.UnlockAllButton.Location = new System.Drawing.Point(12, 267);
+            this.UnlockAllButton.Name = "UnlockAllButton";
+            this.UnlockAllButton.Size = new System.Drawing.Size(75, 23);
+            this.UnlockAllButton.TabIndex = 13;
+            this.UnlockAllButton.Text = "Unlock all";
+            this.UnlockAllButton.UseVisualStyleBackColor = true;
+            this.UnlockAllButton.Click += new System.EventHandler(this.UnlockAllButton_Click);
+            // 
             // WeaponListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(339, 275);
+            this.ClientSize = new System.Drawing.Size(339, 302);
+            this.Controls.Add(this.UnlockAllButton);
             this.Controls.Add(this.DoneButton);
             this.Controls.Add(this.PaintGunCheckBox);
             this.Controls.Add(this.SilencedPistolCheckBox);
@@ -223,5 +235,7 @@ namespace BloodAndBaconSaveEditor.Forms
         private System.Windows.Forms.Button DoneButton;
         private System.Windows.Forms.CheckBox RocketLauncherCheckBox;
         #endregion
+
+        private System.Windows.Forms.Button UnlockAllButton;
     }
 }

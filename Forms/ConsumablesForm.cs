@@ -45,5 +45,14 @@ namespace BloodAndBaconSaveEditor.Forms
             consumables.Pills = (byte)PillsNumericUpDown.Value;
             consumables.Rockets = (byte)RocketsNumericUpDown.Value;
         }
+
+        private void MaxAllButton_Click(object sender, EventArgs e)
+        {
+            GrenadesNumericUpDown.Value = 10;
+            MilkNumericUpDown.Value = 10;
+            BulkifyNumericUpDown.Value = 5;
+            PillsNumericUpDown.Value = 5;
+            RocketsNumericUpDown.Value = 2;
+        }
     }
 }

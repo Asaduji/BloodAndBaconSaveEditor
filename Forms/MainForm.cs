@@ -26,6 +26,7 @@ namespace BloodAndBaconSaveEditor.Forms
                 UnlockedWeaponsButton.Enabled = true;
                 ConsumablesButton.Enabled = true;
                 DaysButton.Enabled = true;
+                CharactersButton.Enabled = true;
                 SaveFileButton.Enabled = true;
             }
         }
@@ -63,6 +64,13 @@ namespace BloodAndBaconSaveEditor.Forms
             if (Program.CurrentSave == null) return;
             var days = new DaysForm();
             days.ShowDialog();
+        }
+
+        private void CharactersButton_Click(object sender, EventArgs e)
+        {
+            if (Program.CurrentSave == null) return;
+            var characters = new CharactersForm();
+            characters.ShowDialog();
         }
     }
 }

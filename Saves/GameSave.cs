@@ -25,10 +25,10 @@ namespace BloodAndBaconSaveEditor.Saves
         public Consumables Consumables;
         public byte UnlockedHats;
         public byte UnlockedHats2;
-        public bool UnlockedMan1; //Special character
-        public bool UnlockedMan2; //Special character
-        public bool UnlockedMan3; //Special character
-        public bool UnlockedMan4; //Special character
+        public bool UnlockedSpecialCharacter1; //Special character, A Scarecrow
+        public bool UnlockedSpecialCharacter2; //Special character, Toy Robot
+        public bool UnlockedSpecialCharacter3; //Special character, The Golem
+        public bool UnlockedSpecialCharacter4; //Special character, Astronaut
         public byte[] Flashlight = new byte[3]; //3
         public byte Googles;
         public byte[] UnlockedMaps = new byte[20]; //Total 20
@@ -74,10 +74,10 @@ namespace BloodAndBaconSaveEditor.Saves
             _rocketCount = reader.ReadByte();
             UnlockedHats = reader.ReadByte();
             UnlockedHats2 = reader.ReadByte();
-            UnlockedMan1 = reader.ReadBoolean();
-            UnlockedMan2 = reader.ReadBoolean();
-            UnlockedMan3 = reader.ReadBoolean();
-            UnlockedMan4 = reader.ReadBoolean();
+            UnlockedSpecialCharacter1 = reader.ReadBoolean();
+            UnlockedSpecialCharacter2 = reader.ReadBoolean();
+            UnlockedSpecialCharacter3 = reader.ReadBoolean();
+            UnlockedSpecialCharacter4 = reader.ReadBoolean();
             
             //Flashlights
             for (var i = 0; i < Flashlight.Length; i++)
@@ -188,10 +188,10 @@ namespace BloodAndBaconSaveEditor.Saves
             writer.Write(Consumables.Rockets);
             writer.Write(UnlockedHats);
             writer.Write(UnlockedHats2);
-            writer.Write(UnlockedMan1);
-            writer.Write(UnlockedMan2);
-            writer.Write(UnlockedMan3);
-            writer.Write(UnlockedMan4);
+            writer.Write(UnlockedSpecialCharacter1);
+            writer.Write(UnlockedSpecialCharacter2);
+            writer.Write(UnlockedSpecialCharacter3);
+            writer.Write(UnlockedSpecialCharacter4);
             writer.Write(Flashlight);
             writer.Write(Googles);
             writer.Write(UnlockedMaps);

@@ -41,6 +41,7 @@ namespace BloodAndBaconSaveEditor.Forms
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.DoneButton = new System.Windows.Forms.Button();
+            this.MaxAllButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.GrenadesNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MilkNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BulkifyNumericUpDown)).BeginInit();
@@ -163,11 +164,22 @@ namespace BloodAndBaconSaveEditor.Forms
             this.DoneButton.UseVisualStyleBackColor = true;
             this.DoneButton.Click += new System.EventHandler(this.DoneButton_Click);
             // 
+            // MaxAllButton
+            // 
+            this.MaxAllButton.Location = new System.Drawing.Point(13, 75);
+            this.MaxAllButton.Name = "MaxAllButton";
+            this.MaxAllButton.Size = new System.Drawing.Size(75, 23);
+            this.MaxAllButton.TabIndex = 11;
+            this.MaxAllButton.Text = "Max all";
+            this.MaxAllButton.UseVisualStyleBackColor = true;
+            this.MaxAllButton.Click += new System.EventHandler(this.MaxAllButton_Click);
+            // 
             // ConsumablesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(364, 110);
+            this.Controls.Add(this.MaxAllButton);
             this.Controls.Add(this.DoneButton);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -209,5 +221,6 @@ namespace BloodAndBaconSaveEditor.Forms
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button DoneButton;
+        private System.Windows.Forms.Button MaxAllButton;
     }
 }
