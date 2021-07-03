@@ -5,9 +5,9 @@ using System.Windows.Forms;
 
 namespace BloodAndBaconSaveEditor.Forms
 {
-    public partial class Main : Form
+    public partial class MainForm : Form
     {
-        public Main()
+        public MainForm()
         {
             InitializeComponent();
         }
@@ -23,15 +23,17 @@ namespace BloodAndBaconSaveEditor.Forms
                 Program.CurrentSave = new GameSave(bytes);
 
                 //Enable controls
-                unlockedWeaponsButton.Enabled = true;
-                saveFileButton.Enabled = true;
+                UnlockedWeaponsButton.Enabled = true;
+                ConsumablesButton.Enabled = true;
+                DaysButton.Enabled = true;
+                SaveFileButton.Enabled = true;
             }
         }
 
         private void UnlockedWeaponsButton_Click(object sender, EventArgs e)
         {
             if (Program.CurrentSave == null) return;
-            var weaponList = new WeaponList();
+            var weaponList = new WeaponListForm();
             weaponList.ShowDialog();
         }
 
@@ -45,8 +47,22 @@ namespace BloodAndBaconSaveEditor.Forms
             {
                 var path = saveDialog.FileName;
                 File.WriteAllBytes(path, Program.CurrentSave.GetBytes());
-                MessageBox.Show("Saved data");
+                MessageBox.Show("Saved data", "Success");
             }
+        }
+
+        private void ConsumablesButton_Click(object sender, EventArgs e)
+        {
+            if (Program.CurrentSave == null) return;
+            var consumables = new ConsumablesForm();
+            consumables.ShowDialog();
+        }
+
+        private void DaysButton_Click(object sender, EventArgs e)
+        {
+            if (Program.CurrentSave == null) return;
+            var days = new DaysForm();
+            days.ShowDialog();
         }
     }
 }
