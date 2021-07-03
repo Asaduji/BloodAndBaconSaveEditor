@@ -4,10 +4,11 @@
         <OutputType>WinExe</OutputType>
         <TargetFramework>netcoreapp3.1</TargetFramework>
         <UseWindowsForms>true</UseWindowsForms>
+        <ApplicationIcon>icon.ico</ApplicationIcon>
     </PropertyGroup>
 
     <ItemGroup>
-      <Compile Update="Forms\WeaponList.cs">
+      <Compile Update="Forms\WeaponListForm.cs">
         <SubType>Form</SubType>
       </Compile>
     </ItemGroup>

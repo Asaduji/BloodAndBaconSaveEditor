@@ -9,6 +9,7 @@ namespace BloodAndBaconSaveEditor.Saves
         {
             ReadBytes(bytes);
             UnlockedWeapons = new UnlockedWeapons(_unlockedWeaponsBitField);
+            Consumables = new Consumables(_grenadeCount, _milkCount, _bulkifyCount, _pillCount, _rocketCount);
         }
         
         public byte[] UnlockedDays = new byte[201]; //Total 201
@@ -16,11 +17,12 @@ namespace BloodAndBaconSaveEditor.Saves
         private int _grinderUnlocksBitField;
         public UnlockedWeapons UnlockedWeapons;
         public int UnlockedCharacters; //Useless, the game uses "UnlockedMan" for unlocked characters
-        public byte GrenadeCount; //Max 10
-        public byte MilkCount; //Max 10
-        public byte BulkifyCount; //Max 5
-        public byte PillCount; //Max 5
-        public byte RocketCount; //Max 2
+        private byte _grenadeCount; //Max 10
+        private byte _milkCount; //Max 10
+        private byte _bulkifyCount; //Max 5
+        private byte _pillCount; //Max 5
+        private byte _rocketCount; //Max 2
+        public Consumables Consumables;
         public byte UnlockedHats;
         public byte UnlockedHats2;
         public bool UnlockedMan1; //Special character
@@ -65,11 +67,11 @@ namespace BloodAndBaconSaveEditor.Saves
             _unlockedWeaponsBitField = reader.ReadInt32();
             _grinderUnlocksBitField = reader.ReadInt32();
             UnlockedCharacters = reader.ReadInt32();
-            GrenadeCount = reader.ReadByte();
-            MilkCount = reader.ReadByte();
-            BulkifyCount = reader.ReadByte();
-            PillCount = reader.ReadByte();
-            RocketCount = reader.ReadByte();
+            _grenadeCount = reader.ReadByte();
+            _milkCount = reader.ReadByte();
+            _bulkifyCount = reader.ReadByte();
+            _pillCount = reader.ReadByte();
+            _rocketCount = reader.ReadByte();
             UnlockedHats = reader.ReadByte();
             UnlockedHats2 = reader.ReadByte();
             UnlockedMan1 = reader.ReadBoolean();
@@ -176,21 +178,14 @@ namespace BloodAndBaconSaveEditor.Saves
             
             //Write days
             writer.Write(UnlockedDays);
-            /*
-            for (var i = 0; i < UnlockedDays.Length; i++)
-            {
-                
-            }
-            */
-
             writer.Write(UnlockedWeapons.ToBitfield());
             writer.Write(_grinderUnlocksBitField);
             writer.Write(UnlockedCharacters);
-            writer.Write(GrenadeCount);
-            writer.Write(MilkCount);
-            writer.Write(BulkifyCount);
-            writer.Write(PillCount);
-            writer.Write(RocketCount);
+            writer.Write(Consumables.Grenades);
+            writer.Write(Consumables.Milk);
+            writer.Write(Consumables.Bulkify);
+            writer.Write(Consumables.Pills);
+            writer.Write(Consumables.Rockets);
             writer.Write(UnlockedHats);
             writer.Write(UnlockedHats2);
             writer.Write(UnlockedMan1);
