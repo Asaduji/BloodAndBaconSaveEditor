@@ -1,0 +1,7 @@
+bin/
+obj/
+
+#VS and Rider stuff
+.vs
+.idea
+*.user
