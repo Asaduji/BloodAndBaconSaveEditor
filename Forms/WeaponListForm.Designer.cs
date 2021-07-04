@@ -211,6 +211,7 @@ namespace BloodAndBaconSaveEditor.Forms
             this.MaximizeBox = false;
             this.Name = "WeaponListForm";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Unlocked weapons";
             this.Load += new System.EventHandler(this.WeaponList_Load);
             this.ResumeLayout(false);

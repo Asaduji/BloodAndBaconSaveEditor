@@ -10,8 +10,9 @@ namespace BloodAndBaconSaveEditor.Saves
             ReadBytes(bytes);
             UnlockedWeapons = new UnlockedWeapons(_unlockedWeaponsBitField);
             Consumables = new Consumables(_grenadeCount, _milkCount, _bulkifyCount, _pillCount, _rocketCount);
-            UnlockedHats = new UnlockedHats(_unlockedHats1, _unlockedHats2);
+            UnlockedHats = new UnlockedHats(_unlockedHats1Bitfield, _unlockedHats2Bitfield);
         }
+
         private int _unlockedWeaponsBitField;
         private int _grinderUnlocksBitField;
         private int _unlockedCharacters; //Useless, the game uses "UnlockedMan" for unlocked characters
@@ -20,8 +21,8 @@ namespace BloodAndBaconSaveEditor.Saves
         private byte _bulkifyCount; //Max 5
         private byte _pillCount; //Max 5
         private byte _rocketCount; //Max 2
-        private byte _unlockedHats1;
-        private byte _unlockedHats2;
+        private byte _unlockedHats1Bitfield;
+        private byte _unlockedHats2Bitfield;
         public UnlockedWeapons UnlockedWeapons;
         public UnlockedHats UnlockedHats;
         public Consumables Consumables;
@@ -29,15 +30,17 @@ namespace BloodAndBaconSaveEditor.Saves
         public bool UnlockedSpecialCharacter2; //Special character, Toy Robot
         public bool UnlockedSpecialCharacter3; //Special character, The Golem
         public bool UnlockedSpecialCharacter4; //Special character, Astronaut
+        public bool Flashlight1;
+        public bool Flashlight2;
+        public bool Flashlight3;
         public byte Googles;
         public byte RedSkull1; //Collectible
         public byte RedSkull2; //Collectible
         public byte RedSkull3; //Collectible
-        public byte Tusk1; //Collectible
-        public byte Tusk2; //Collectible
-        public byte Tusk3; //Collectible
-        public readonly byte[] UnlockedDays = new byte[201]; //Total 201, the first byte is always 1 and is useless
-        public readonly byte[] Flashlight = new byte[3]; //3
+        public byte Relic1; //Collectible
+        public byte Relic2; //Collectible
+        public byte Relic3; //Collectible
+        public readonly byte[] UnlockedDays = new byte[201]; //Total 201, the first byte is always 1 and is useless    
         public readonly byte[] UnlockedMaps = new byte[20]; //Total 20
         public readonly byte[] AmmoBox1 = new byte[20]; //Total 20
         public readonly byte[] AmmoBox2 = new byte[20]; //Total 20
@@ -75,19 +78,15 @@ namespace BloodAndBaconSaveEditor.Saves
             _bulkifyCount = reader.ReadByte();
             _pillCount = reader.ReadByte();
             _rocketCount = reader.ReadByte();
-            _unlockedHats1 = reader.ReadByte();
-            _unlockedHats2 = reader.ReadByte();
+            _unlockedHats1Bitfield = reader.ReadByte();
+            _unlockedHats2Bitfield = reader.ReadByte();
             UnlockedSpecialCharacter1 = reader.ReadBoolean();
             UnlockedSpecialCharacter2 = reader.ReadBoolean();
             UnlockedSpecialCharacter3 = reader.ReadBoolean();
             UnlockedSpecialCharacter4 = reader.ReadBoolean();
-            
-            //Flashlights
-            for (var i = 0; i < Flashlight.Length; i++)
-            {
-                Flashlight[i] = reader.ReadByte();
-            }
-
+            Flashlight1 = reader.ReadBoolean();
+            Flashlight2 = reader.ReadBoolean();
+            Flashlight3 = reader.ReadBoolean();
             Googles = reader.ReadByte();
             
             //Maps
@@ -163,9 +162,9 @@ namespace BloodAndBaconSaveEditor.Saves
             RedSkull1 = reader.ReadByte();
             RedSkull2 = reader.ReadByte();
             RedSkull3 = reader.ReadByte();
-            Tusk1 = reader.ReadByte();
-            Tusk2 = reader.ReadByte();
-            Tusk3 = reader.ReadByte();
+            Relic1 = reader.ReadByte();
+            Relic2 = reader.ReadByte();
+            Relic3 = reader.ReadByte();
             
             //Heirloom
             for (var i = 0; i < Heirloom.Length; i++)
@@ -197,7 +196,9 @@ namespace BloodAndBaconSaveEditor.Saves
             writer.Write(UnlockedSpecialCharacter2);
             writer.Write(UnlockedSpecialCharacter3);
             writer.Write(UnlockedSpecialCharacter4);
-            writer.Write(Flashlight);
+            writer.Write(Flashlight1);
+            writer.Write(Flashlight2);
+            writer.Write(Flashlight3);
             writer.Write(Googles);
             writer.Write(UnlockedMaps);
             writer.Write(AmmoBox1);
@@ -233,9 +234,9 @@ namespace BloodAndBaconSaveEditor.Saves
             writer.Write(RedSkull1);
             writer.Write(RedSkull2);
             writer.Write(RedSkull3);
-            writer.Write(Tusk1);
-            writer.Write(Tusk2);
-            writer.Write(Tusk3);
+            writer.Write(Relic1);
+            writer.Write(Relic2);
+            writer.Write(Relic3);
             writer.Write(Heirloom);
             
             return ms.ToArray();

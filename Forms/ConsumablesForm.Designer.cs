@@ -196,6 +196,7 @@ namespace BloodAndBaconSaveEditor.Forms
             this.MaximizeBox = false;
             this.Name = "ConsumablesForm";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Consumables";
             this.Load += new System.EventHandler(this.ConsumablesForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.GrenadesNumericUpDown)).EndInit();
