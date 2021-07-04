@@ -29,11 +29,12 @@ namespace BloodAndBaconSaveEditor.Forms
                 CharactersButton.Enabled = true;
                 HatsButton.Enabled = true;
                 CollectiblesButton.Enabled = true;
+                FlashlightsButton.Enabled = true;
                 SaveFileButton.Enabled = true;
             }
         }
 
-        private void UnlockedWeaponsButton_Click(object sender, EventArgs e)
+        private void WeaponsButton_Click(object sender, EventArgs e)
         {
             if (Program.CurrentSave == null) return;
             var weaponList = new WeaponListForm();
@@ -87,6 +88,13 @@ namespace BloodAndBaconSaveEditor.Forms
             if (Program.CurrentSave == null) return;
             var collectibles = new CollectiblesForm();
             collectibles.ShowDialog();
+        }
+
+        private void FlashlightsButton_Click(object sender, EventArgs e)
+        {
+            if (Program.CurrentSave == null) return;
+            var flashlights = new FlashlightsForm();
+            flashlights.ShowDialog();
         }
     }
 }

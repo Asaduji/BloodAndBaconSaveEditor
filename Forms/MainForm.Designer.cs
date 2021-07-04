@@ -38,11 +38,12 @@
             this.CharactersButton = new System.Windows.Forms.Button();
             this.HatsButton = new System.Windows.Forms.Button();
             this.CollectiblesButton = new System.Windows.Forms.Button();
+            this.FlashlightsButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // SelectFileButton
             // 
-            this.SelectFileButton.Location = new System.Drawing.Point(12, 143);
+            this.SelectFileButton.Location = new System.Drawing.Point(12, 167);
             this.SelectFileButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.SelectFileButton.Name = "SelectFileButton";
             this.SelectFileButton.Size = new System.Drawing.Size(117, 27);
@@ -54,7 +55,7 @@
             // SaveFileButton
             // 
             this.SaveFileButton.Enabled = false;
-            this.SaveFileButton.Location = new System.Drawing.Point(166, 143);
+            this.SaveFileButton.Location = new System.Drawing.Point(166, 167);
             this.SaveFileButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.SaveFileButton.Name = "SaveFileButton";
             this.SaveFileButton.Size = new System.Drawing.Size(117, 27);
@@ -72,7 +73,7 @@
             this.WeaponsButton.TabIndex = 2;
             this.WeaponsButton.Text = "Weapons";
             this.WeaponsButton.UseVisualStyleBackColor = true;
-            this.WeaponsButton.Click += new System.EventHandler(this.UnlockedWeaponsButton_Click);
+            this.WeaponsButton.Click += new System.EventHandler(this.WeaponsButton_Click);
             // 
             // ConsumablesButton
             // 
@@ -129,11 +130,23 @@
             this.CollectiblesButton.UseVisualStyleBackColor = true;
             this.CollectiblesButton.Click += new System.EventHandler(this.CollectiblesButton_Click);
             // 
+            // FlashlightsButton
+            // 
+            this.FlashlightsButton.Enabled = false;
+            this.FlashlightsButton.Location = new System.Drawing.Point(12, 111);
+            this.FlashlightsButton.Name = "FlashlightsButton";
+            this.FlashlightsButton.Size = new System.Drawing.Size(117, 27);
+            this.FlashlightsButton.TabIndex = 8;
+            this.FlashlightsButton.Text = "Flashlights";
+            this.FlashlightsButton.UseVisualStyleBackColor = true;
+            this.FlashlightsButton.Click += new System.EventHandler(this.FlashlightsButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(295, 182);
+            this.ClientSize = new System.Drawing.Size(295, 206);
+            this.Controls.Add(this.FlashlightsButton);
             this.Controls.Add(this.CollectiblesButton);
             this.Controls.Add(this.HatsButton);
             this.Controls.Add(this.CharactersButton);
@@ -162,5 +175,6 @@
         private System.Windows.Forms.Button CharactersButton;
         private System.Windows.Forms.Button HatsButton;
         private System.Windows.Forms.Button CollectiblesButton;
+        private System.Windows.Forms.Button FlashlightsButton;
     }
 }

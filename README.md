@@ -12,3 +12,4 @@ I'm also looking for some help regarding .net game hacking (this one), so if you
 + Unlock weapons
 + Unlock hats
 + Unlock collectibles
++ Unlock flashlights
