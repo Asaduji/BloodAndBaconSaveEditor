@@ -6,6 +6,8 @@ This project is currently in a very early
 I'm also looking for some help regarding .net game hacking (this one), so if you want to help with that it will be appreciated
 
 ## Features
-+ Unlock weapons
 + Edit consumables
 + Unlock days
++ Unlock special characters
++ Unlock weapons
++ Unlock hats

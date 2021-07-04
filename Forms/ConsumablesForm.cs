@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace BloodAndBaconSaveEditor.Forms
@@ -44,6 +39,15 @@ namespace BloodAndBaconSaveEditor.Forms
             consumables.Bulkify = (byte)BulkifyNumericUpDown.Value;
             consumables.Pills = (byte)PillsNumericUpDown.Value;
             consumables.Rockets = (byte)RocketsNumericUpDown.Value;
+        }
+
+        private void MaxAllButton_Click(object sender, EventArgs e)
+        {
+            GrenadesNumericUpDown.Value = 10;
+            MilkNumericUpDown.Value = 10;
+            BulkifyNumericUpDown.Value = 5;
+            PillsNumericUpDown.Value = 5;
+            RocketsNumericUpDown.Value = 2;
         }
     }
 }
