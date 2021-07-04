@@ -231,6 +231,7 @@ namespace BloodAndBaconSaveEditor.Forms
             this.MaximizeBox = false;
             this.Name = "HatsForm";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Unlocked hats";
             this.Load += new System.EventHandler(this.HatsForm_Load);
             this.ResumeLayout(false);

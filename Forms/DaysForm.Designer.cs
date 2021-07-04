@@ -176,6 +176,7 @@ namespace BloodAndBaconSaveEditor.Forms
             this.MaximizeBox = false;
             this.Name = "DaysForm";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Days";
             this.Load += new System.EventHandler(this.DaysForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.SelectedDayNumericUpDown)).EndInit();
