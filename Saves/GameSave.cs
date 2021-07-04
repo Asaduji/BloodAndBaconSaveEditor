@@ -10,45 +10,48 @@ namespace BloodAndBaconSaveEditor.Saves
             ReadBytes(bytes);
             UnlockedWeapons = new UnlockedWeapons(_unlockedWeaponsBitField);
             Consumables = new Consumables(_grenadeCount, _milkCount, _bulkifyCount, _pillCount, _rocketCount);
+            UnlockedHats = new UnlockedHats(_unlockedHats1, _unlockedHats2);
         }
-        
-        public byte[] UnlockedDays = new byte[201]; //Total 201, the first byte is always 1 and is useless
         private int _unlockedWeaponsBitField;
         private int _grinderUnlocksBitField;
-        public UnlockedWeapons UnlockedWeapons;
-        public int UnlockedCharacters; //Useless, the game uses "UnlockedMan" for unlocked characters
+        private int _unlockedCharacters; //Useless, the game uses "UnlockedMan" for unlocked characters
         private byte _grenadeCount; //Max 10
         private byte _milkCount; //Max 10
         private byte _bulkifyCount; //Max 5
         private byte _pillCount; //Max 5
         private byte _rocketCount; //Max 2
+        private byte _unlockedHats1;
+        private byte _unlockedHats2;
+        public UnlockedWeapons UnlockedWeapons;
+        public UnlockedHats UnlockedHats;
         public Consumables Consumables;
-        public byte UnlockedHats;
-        public byte UnlockedHats2;
         public bool UnlockedSpecialCharacter1; //Special character, A Scarecrow
         public bool UnlockedSpecialCharacter2; //Special character, Toy Robot
         public bool UnlockedSpecialCharacter3; //Special character, The Golem
         public bool UnlockedSpecialCharacter4; //Special character, Astronaut
-        public byte[] Flashlight = new byte[3]; //3
         public byte Googles;
-        public byte[] UnlockedMaps = new byte[20]; //Total 20
-        public byte[] AmmoBox1 = new byte[20]; //Total 20
-        public byte[] AmmoBox2 = new byte[20]; //Total 20
-        public byte[] AmmoBox3 = new byte[20]; //Total 20
-        public byte[] Cog1 = new byte[20]; //Total 20 - If code is unlocked for specific maze
-        public byte[] Cog2 = new byte[20]; //Total 20 - If code is unlocked for specific maze
-        public byte[] Cog3 = new byte[20]; //Total 20 - If code is unlocked for specific maze
-        public byte[] ExitKey = new byte[20]; //Total 20 - To exit expeditions
-        public byte[,] Code1 = new byte[20, 3]; //Total 20 - To open doors at expeditions, codes
-        public byte[,] Code2 = new byte[20, 3]; //Total 20 - To open doors at expeditions, codes
-        public byte[,] Code3 = new byte[20, 3]; //Total 20 - To open doors at expeditions, codes
         public byte RedSkull1; //Collectible
         public byte RedSkull2; //Collectible
         public byte RedSkull3; //Collectible
         public byte Tusk1; //Collectible
         public byte Tusk2; //Collectible
         public byte Tusk3; //Collectible
-        public byte[] Heirloom = new byte[7]; //Total 7 - No idea what this is
+        public readonly byte[] UnlockedDays = new byte[201]; //Total 201, the first byte is always 1 and is useless
+        public readonly byte[] Flashlight = new byte[3]; //3
+        public readonly byte[] UnlockedMaps = new byte[20]; //Total 20
+        public readonly byte[] AmmoBox1 = new byte[20]; //Total 20
+        public readonly byte[] AmmoBox2 = new byte[20]; //Total 20
+        public readonly byte[] AmmoBox3 = new byte[20]; //Total 20
+        public readonly byte[] Cog1 = new byte[20]; //Total 20 - If code is unlocked for specific maze
+        public readonly byte[] Cog2 = new byte[20]; //Total 20 - If code is unlocked for specific maze
+        public readonly byte[] Cog3 = new byte[20]; //Total 20 - If code is unlocked for specific maze
+        public readonly byte[] ExitKey = new byte[20]; //Total 20 - To exit expeditions
+        public readonly byte[,] Code1 = new byte[20, 3]; //Total 20 - To open doors at expeditions, codes
+        public readonly byte[,] Code2 = new byte[20, 3]; //Total 20 - To open doors at expeditions, codes
+        public readonly byte[,] Code3 = new byte[20, 3]; //Total 20 - To open doors at expeditions, codes
+        public readonly byte[] Heirloom = new byte[7]; //Total 7 - No idea what this is
+
+        
         
         private void ReadBytes(byte[] bytes)
         {
@@ -66,14 +69,14 @@ namespace BloodAndBaconSaveEditor.Saves
 
             _unlockedWeaponsBitField = reader.ReadInt32();
             _grinderUnlocksBitField = reader.ReadInt32();
-            UnlockedCharacters = reader.ReadInt32();
+            _unlockedCharacters = reader.ReadInt32();
             _grenadeCount = reader.ReadByte();
             _milkCount = reader.ReadByte();
             _bulkifyCount = reader.ReadByte();
             _pillCount = reader.ReadByte();
             _rocketCount = reader.ReadByte();
-            UnlockedHats = reader.ReadByte();
-            UnlockedHats2 = reader.ReadByte();
+            _unlockedHats1 = reader.ReadByte();
+            _unlockedHats2 = reader.ReadByte();
             UnlockedSpecialCharacter1 = reader.ReadBoolean();
             UnlockedSpecialCharacter2 = reader.ReadBoolean();
             UnlockedSpecialCharacter3 = reader.ReadBoolean();
@@ -84,6 +87,8 @@ namespace BloodAndBaconSaveEditor.Saves
             {
                 Flashlight[i] = reader.ReadByte();
             }
+
+            Googles = reader.ReadByte();
             
             //Maps
             for (var i = 0; i < UnlockedMaps.Length; i++)
@@ -180,14 +185,14 @@ namespace BloodAndBaconSaveEditor.Saves
             writer.Write(UnlockedDays);
             writer.Write(UnlockedWeapons.ToBitfield());
             writer.Write(_grinderUnlocksBitField);
-            writer.Write(UnlockedCharacters);
+            writer.Write(_unlockedCharacters);
             writer.Write(Consumables.Grenades);
             writer.Write(Consumables.Milk);
             writer.Write(Consumables.Bulkify);
             writer.Write(Consumables.Pills);
             writer.Write(Consumables.Rockets);
-            writer.Write(UnlockedHats);
-            writer.Write(UnlockedHats2);
+            writer.Write(UnlockedHats.Hats1ToBitfield());
+            writer.Write(UnlockedHats.Hats2ToBitfield());
             writer.Write(UnlockedSpecialCharacter1);
             writer.Write(UnlockedSpecialCharacter2);
             writer.Write(UnlockedSpecialCharacter3);

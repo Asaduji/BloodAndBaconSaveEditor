@@ -36,6 +36,7 @@
             this.ConsumablesButton = new System.Windows.Forms.Button();
             this.DaysButton = new System.Windows.Forms.Button();
             this.CharactersButton = new System.Windows.Forms.Button();
+            this.HatsButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // SelectFileButton
@@ -105,11 +106,23 @@
             this.CharactersButton.UseVisualStyleBackColor = true;
             this.CharactersButton.Click += new System.EventHandler(this.CharactersButton_Click);
             // 
+            // HatsButton
+            // 
+            this.HatsButton.Enabled = false;
+            this.HatsButton.Location = new System.Drawing.Point(12, 78);
+            this.HatsButton.Name = "HatsButton";
+            this.HatsButton.Size = new System.Drawing.Size(117, 27);
+            this.HatsButton.TabIndex = 6;
+            this.HatsButton.Text = "Hats";
+            this.HatsButton.UseVisualStyleBackColor = true;
+            this.HatsButton.Click += new System.EventHandler(this.HatsButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(295, 182);
+            this.Controls.Add(this.HatsButton);
             this.Controls.Add(this.CharactersButton);
             this.Controls.Add(this.DaysButton);
             this.Controls.Add(this.ConsumablesButton);
@@ -134,5 +147,6 @@
 
         private System.Windows.Forms.Button DaysButton;
         private System.Windows.Forms.Button CharactersButton;
+        private System.Windows.Forms.Button HatsButton;
     }
 }

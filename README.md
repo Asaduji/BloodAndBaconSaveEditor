@@ -10,3 +10,4 @@ I'm also looking for some help regarding .net game hacking (this one), so if you
 + Unlock days
 + Unlock special characters
 + Unlock weapons
++ Unlock hats

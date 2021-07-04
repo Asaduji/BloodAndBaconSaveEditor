@@ -27,6 +27,7 @@ namespace BloodAndBaconSaveEditor.Forms
                 ConsumablesButton.Enabled = true;
                 DaysButton.Enabled = true;
                 CharactersButton.Enabled = true;
+                HatsButton.Enabled = true;
                 SaveFileButton.Enabled = true;
             }
         }
@@ -71,6 +72,13 @@ namespace BloodAndBaconSaveEditor.Forms
             if (Program.CurrentSave == null) return;
             var characters = new CharactersForm();
             characters.ShowDialog();
+        }
+
+        private void HatsButton_Click(object sender, EventArgs e)
+        {
+            if (Program.CurrentSave == null) return;
+            var hats = new HatsForm();
+            hats.ShowDialog();
         }
     }
 }
